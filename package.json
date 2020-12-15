@@ -1,0 +1,48 @@
+{
+ "name": "wincwp",
+ "version": "1.0.0",
+ "description": "winc wp package",
+ "main": "index.js",
+ "scripts": {
+  "build": "npm run build:vendor-prefixes && npm run build:rtl",
+  "build:rtl": "concurrently \"npm run build:rtl-style\" \"npm run build:rtl-esb\" \"npm run build:rtl-esc\"",
+  "build:rtl-style": "rtlcss style.css style-rtl.css",
+  "build:rtl-esb": "rtlcss assets/css/editor-style-block.css assets/css/editor-style-block-rtl.css",
+  "build:rtl-esc": "rtlcss assets/css/editor-style-classic.css assets/css/editor-style-classic-rtl.css",
+  "build:vendor-prefixes": "concurrently \"npm run build:vendor-prefixes-style\" \"npm run build:vendor-prefixes-esb\" \"npm run build:vendor-prefixes-esc\"",
+  "build:vendor-prefixes-style": "postcss -r --no-map style.css assets/css/editor-style-block.css assets/css/editor-style-classic.css",
+  "build:vendor-prefixes-esb": "postcss -r --no-map assets/css/editor-style-block.css ",
+  "build:vendor-prefixes-esc": "postcss -r --no-map assets/css/editor-style-classic.css",
+  "lint:css": "wp-scripts lint-style 'style.css' 'assets/**/*.css'",
+  "lint:js": "wp-scripts lint-js 'assets/**/*.js'",
+  "lint:pkg-json": "wp-scripts lint-pkg-json"
+ },
+ "author": "author-name",
+ "license": "ISC",
+ "devDependencies": {
+  "babel-core": "^6.26.3",
+  "babel-preset-env": "^1.7.0",
+  "babel-preset-es2015": "^6.24.1",
+  "bootstrap-scss": "^4.4.1",
+  "browser-sync": "^2.26.7",
+  "gulp": "^3.9.1",
+  "gulp-autoprefixer": "^6.0.0",
+  "gulp-babel": "^7.0.1",
+  "gulp-clean-css": "^4.0.0",
+  "gulp-concat": "^2.6.1",
+  "gulp-rename": "^1.4.0",
+  "gulp-sass": "^4.0.2",
+  "gulp-scss-lint": "^1.0.0",
+  "gulp-uglify": "^3.0.1",
+  "gulp-uncss": "^1.0.6",
+  "node-sass": "^4.13.1",
+  "gulp-zip": "^5.0.1"
+ },
+ "dependencies": {
+  "babel-polyfill": "^6.26.0",
+  "bulma": "^0.8.2"
+ },
+ "browserslist": [
+  "defaults"
+ ]
+}

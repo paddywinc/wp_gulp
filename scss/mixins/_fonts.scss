@@ -1,0 +1,45 @@
+// --------------------------------------------------
+// font face
+
+
+@include font-face(Samplino, ../../assets/fonts/Samplino);
+
+
+// --------------------------------------------------
+// font size
+
+@function calculate-rem($size) {
+  $rem-size: $size / 16px;
+  @return $rem-size * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: calculate-rem($size);
+}
+
+// --------------------------------------------------
+// heading styles
+
+@mixin h1 {
+  font-size: 3rem;
+}
+
+@mixin h2 {
+  font-size: 2rem;
+}
+
+@mixin h3 {
+  font-size: 1rem;
+}
+
+@mixin h4 {
+
+}
+
+@mixin h5 {
+
+}
+
+@mixin h6 {
+
+}
